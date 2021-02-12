@@ -40,7 +40,7 @@ public class Main {
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
 
-        List<Facts> facts = mapper.readValue(jsonBody, new TypeReference<>() {});
+        List<Facts> facts = mapper.readValue(jsonBody, new TypeReference<List<Facts>>() {});
 
         facts.stream().map(Facts::getCreatedAt).filter(x -> x.getMonth() == Month.JANUARY).forEach(System.out::println);
     }
